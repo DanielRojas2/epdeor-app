@@ -1,7 +1,0 @@
-<form id="form-udm" method="post">
-    {% csrf_token %}
-    <label>Unidad de Medida:</label>
-    <input type="text" name="unidad_medida" value="{{ udm.unidad_medida|default:'' }}">
-
-    <button type="submit">Guardar</button>
-</form>
