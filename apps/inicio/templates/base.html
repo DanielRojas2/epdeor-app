@@ -1,24 +1,55 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %} - EPDEOR</title>
+    <link rel="shortcut icon" href="{% static 'assets/logos/epdeor.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/datatables.min.css' %}">
+    {% block extra_css %}{% endblock %}
 </head>
 <body>
     {% if request.user.is_authenticated %}
-        Hola {{ request.user.first_name|default:request.user.username }},
-        <form action="{% url 'cerrar_sesion' %}" method="post">
-            {% csrf_token %}
-            <input type="submit" value="Cerrar Sesión">
-        </form>
-    {% else %}
-        <a href="{% url 'iniciar_sesion' %}">Iniciar Sesión</a>
+        <header id="header">
+            <div class="logo-sesion">
+                <div class="logo">
+                    <img src="{% static 'assets/logos/epdeor_nobg.png' %}" alt="Logo EPDEOR">
+                    <span><a href="#">EPDEOR</a></span>
+                </div>
+                <div class="sesion">
+                    <form action="{% url 'cerrar_sesion' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn-link">Cerrar sesión</button>
+                    </form>
+                    <button class="hamburger" id="hamburger-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+
+            <nav class="links" id="navbar-links" style="--items:6;">
+                <a href="#" class="{% if request.path == '/' %}active{% endif %}">Inicio</a>
+                <a href="#">Usuarios</a>
+                <a href="#">Almacenes</a>
+                <a href="#">Material</a>
+                <a href="#">Archivos</a>
+                <a href="#">Solicitudes</a>
+                <span class="line"></span>
+            </nav>
+        </header>
     {% endif %}
     {% block content %}
     {% endblock %}
 
+    <script src="{% static 'bootstrap/js/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/datatables.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
     {% block scripts %}
     {% endblock %}
 </body>
