@@ -19,6 +19,9 @@ function listarEstanteNivel() {
                 $('#tabla_estante_nivel tbody').append(fila);
             }
             $("#tabla_estante_nivel").DataTable({
+                responsive: true,
+                pageLength: 5,
+                lengthMenu: [5, 10, 20, 50],
                 language: {
                     decimal: "",
                     emptyTable: "No hay información",

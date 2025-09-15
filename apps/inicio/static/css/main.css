@@ -45,6 +45,15 @@ h2 {
   font-family: "GothamRegular", sans-serif !important;
 }
 
+i.zmdi, .zmdi {
+  font-family: "Material-Design-Iconic-Font" !important;
+  font-style: normal;
+  font-weight: normal;
+  display: inline-block;
+  text-decoration: inherit;
+  text-align: center;
+}
+
 /* ====== HEADER ====== */
 #header {
   left: 0;
