@@ -33,7 +33,7 @@
             </div>
 
             <nav class="links" id="navbar-links" style="--items:6;">
-                <a href="#" class="{% if request.path == '/' %}active{% endif %}">Inicio</a>
+                <a href="/" class="{% if request.path == '/' %}active{% endif %}">Inicio</a>
                 <a href="#">Usuarios</a>
                 <a
                     href="{% url 'listar_estante_nivel' %}"
@@ -41,7 +41,12 @@
                 >
                     Almacenes
                 </a>
-                <a href="#">Material</a>
+                <a
+                    href="{% url 'listar_material' %}"
+                    class="{% if request.path == '/inventario-material/material/' %}active{% endif %}"
+                >
+                    Material
+                </a>
                 <a href="#">Archivos</a>
                 <a href="#">Solicitudes</a>
                 <span class="line"></span>

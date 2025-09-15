@@ -2,6 +2,7 @@ from django.db import models
 
 class Partida(models.Model):
     codigo = models.CharField(max_length=20, unique=True)
+    denominacion = models.CharField(max_length=35, unique=True)
     descripcion = models.TextField()
 
     class Meta:
