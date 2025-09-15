@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Administrar Almacenes{% endblock %}
+
+{% block content %}
+<div class="container-fluid mt-5">
+    <div class="card">
+        <div class="card-header">
+            <div class="d-flex justify-content-between">
+                <div class="card-title">Estantes</div>
+                <div class="action">
+                    <button
+                        type="button"
+                        class="btn btn-primary"
+                        onclick="abrir_modal_creacion('{% url 'crear_estante_nivel' %}')"
+                    >
+                        Agregar Nuevo
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="table-stats order-table ov-h">
+            <table id="tabla_estante_nivel" class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Estante</th>
+                        <th>Nivel</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- carga dinámica de datos con DataTables -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="creacion" tabindex="-1" role="dialog"></div>
+<div class="modal fade" id="edicion" tabindex="-1" role="dialog"></div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/almacen/index.js' %}"></script>
+{% endblock %}
