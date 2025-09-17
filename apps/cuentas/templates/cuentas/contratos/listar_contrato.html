@@ -1,19 +1,19 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Gestión de Personal{% endblock %}
+{% block title %}Gestionar Contratos{% endblock %}
 
 {% block content %}
 <div class="container-fluid mt-5">
     <div class="card">
         <div class="card-header">
             <div class="d-flex justify-content-between">
-                <div class="card-title">Personal</div>
+                <div class="card-title">Contratos Vigentes</div>
                 <div class="action">
                     <button
                         type="button"
                         class="btn btn-primary"
-                        onclick="abrir_modal_creacion('{% url 'crear_personal' %}')"
+                        onclick="abrir_modal_creacion('{% url 'crear_contrato' %}')"
                     >
                         Agregar Nuevo
                     </button>
@@ -21,13 +21,12 @@
             </div>
         </div>
         <div class="table-stats order-table ov-h">
-            <table id="tabla_personal" class="table table-striped table-hover table-bordered align-middle">
+            <table id="tabla_contratos" class="table table-striped table-hover table-bordered align-middle">
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Nombre</th>
-                        <th>Paterno</th>
-                        <th>Materno</th>
+                        <th>Cargo</th>
+                        <th>Personal</th>
                         <th>Estado</th>
                         <th>Acciones</th>
                     </tr>
@@ -45,5 +44,5 @@
 {% endblock %}
 
 {% block scripts %}
-    <script src="{% static 'js/cuentas/personal/index.js' %}"></script>
+    <script src="{% static 'js/cuentas/contratos/index.js' %}"></script>
 {% endblock %}
